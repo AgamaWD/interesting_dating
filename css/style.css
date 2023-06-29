@@ -1,0 +1,518 @@
+/*Шрифты*/
+
+@font-face {
+    font-family: "Montserrat Alternates";
+    src: url("../fonts/Montserrat_Alternates/MontserratAlternates-Regular.woff2") format('woff2'), 
+        url("../fonts/Montserrat_Alternates/MontserratAlternates-Regular.woff") format('woff'), 
+        url("../fonts/Montserrat_Alternates/MontserratAlternates-Regular.ttf") format('truetype');
+    font-weight: 400;
+    font-display: swap;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: "Montserrat Alternates";
+    src: url("../fonts/Montserrat_Alternates/MontserratAlternates-Italic.woff2") format('woff2'), 
+        url("../fonts/Montserrat_Alternates/MontserratAlternates-Italic.woff") format('woff'), 
+        url("../fonts/Montserrat_Alternates/MontserratAlternates-Italic.ttf") format('truetype');
+    font-weight: 400;
+    font-display: swap;
+    font-style: italic;
+}
+
+@font-face {
+    font-family: "Montserrat Alternates";
+    src: url("../fonts/Montserrat_Alternates/MontserratAlternates-Medium.woff2") format('woff2'), 
+        url("../fonts/Montserrat_Alternates/MontserratAlternates-Medium.woff") format('woff'), 
+        url("../fonts/Montserrat_Alternates/MontserratAlternates-Medium.ttf") format('truetype');
+    font-weight: 500;
+    font-display: swap;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: "Montserrat Alternates";
+    src: url("../fonts/Montserrat_Alternates/MontserratAlternates-Bold.woff2") format('woff2'), 
+        url("../fonts/Montserrat_Alternates/MontserratAlternates-Bold.woff") format('woff'), 
+        url("../fonts/Montserrat_Alternates/MontserratAlternates-Bold.ttf") format('truetype');
+    font-weight: 700;
+    font-display: swap;
+    font-style: normal;
+}
+
+/*Сброс стилей. Как правило использую минимум, без огромных ресет файлов.*/
+
+*, *::after, *::before, *:focus, *:active {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    border: 0;
+    outline: none;
+}
+body {
+    width: 100%;
+    height: 100%;
+    font-family: 'Montserrat Alternates', sans-serif;
+    line-height: 1.22;
+}
+ul, ol {
+    list-style-type: none;
+}
+
+img {
+    width: 100%;
+    height: 100%;
+}
+
+/*Общие стили*/
+.container {
+    max-width: 1620px;
+    padding-left: 10px;
+    padding-right: 10px;
+    margin: 0 auto;
+    text-align: center;
+}
+
+h1 {
+    font-size: 36px;
+    font-weight: 700;
+}
+
+h1 span {
+    font-weight: 500;
+}
+
+.logo {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.logo__img {
+    flex-basis: 14.9%;
+    flex-shrink: 0;
+    flex-grow: 0;
+}
+
+.logo__img svg {
+    max-width: 100%;
+}
+
+.logo__text {
+    flex-basis: 81%;
+    flex-shrink: 0;
+    flex-grow: 0;
+    text-align: left;
+    font-weight: 700;
+}
+.logo__text ._top {
+    display: block;
+}
+
+.form {
+    position: relative;
+    padding: 40px 14px;
+    border-radius: 10px;
+    backdrop-filter: blur(10px);
+    background-color: rgba(0,0,0, 0.25);
+}
+
+.form:before {
+    content: "";
+    position: absolute;
+    width: calc(100% + 4px);
+    height: calc(100% + 4px);
+    left: -2px;
+    top: -2px;
+    right: -2px;
+    bottom: -2px;
+    padding: 2px;
+    border-radius: 10px;
+    background: linear-gradient(132.12deg, #FF0000 6.78%, #C00397 80.22%);
+    -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+    mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+    -webkit-mask-composite: xor;
+    mask-composite: exclude;
+}
+
+.form__title {
+    font-size: 18px;
+    font-weight: 500;
+}
+
+.form__title span {
+    display: block;
+}
+
+.form__input {
+    width: 300px;
+    max-width: 100%;
+    height: 45px;
+    margin-top: 22px;
+    text-align: center;
+    line-height: 45px;
+    color: #828282;
+    font-size: 16px;
+    border-radius: 100px;
+    background-color: #fff;
+    cursor: pointer;
+    border: 0px solid #ff0000;
+}
+
+.form__input._invalid {
+    border: 1px solid #ff0000;
+}
+
+.form .error {
+    display: none;
+    color: #FF0000;
+    font-size: 10px;
+    margin-top: 6px;
+}
+
+.form .error.active {
+    display: block;
+}
+
+.form__btn._disabled {
+    opacity: 0.7;
+    pointer-events: none;
+}
+
+.form__btn {
+    width: 300px;
+    max-width: 100%;
+    height: 45px;
+    display: block;
+    margin: 12px auto 0;
+    outline: none;
+    border: none;
+    color: #fff;
+    font-size: 18px;
+    text-align: center;
+    line-height: 45px;
+    border-radius: 100px;
+    background-image: linear-gradient(132.12deg, #FF0000 6.78%, #C00397 80.22%);
+    cursor: pointer;
+    transition: all 0.2s linear;
+    transform: scale(1);
+    opacity: 1;
+    pointer-events: auto;
+}
+
+
+.form__btn:hover {
+    background-image: linear-gradient(132.12deg, #C00397 6.78%, #FF0000 80.22%);
+    transition: all 0.2s linear;
+}
+
+.form__btn:active {
+    transform: scale(0.95);
+    transition: all 0.2s linear;
+}
+
+
+.form__text {
+    display: block;
+    margin: 21px auto 0;
+    font-size: 14px;
+}
+
+.form__privacy {
+    display: block;
+    max-width: 410px;
+    margin: 21px auto 0;
+    font-size: 12px;
+    font-style: italic;
+}
+
+.form__privacy .link {
+   color: #fff;
+   text-decoration: underline;
+   transition: all 0.2s linear;
+}
+
+.form__privacy .link:hover {
+    background: linear-gradient(132.12deg, #FF0000 6.78%, #C00397 80.22%);
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    color: #C00397;
+    text-decoration: underline;
+    transition: all 0.2s linear;
+ }
+
+/*Блок main*/
+.main {
+    background-image: linear-gradient(180deg, rgba(0, 0, 0, 0) 0%, #000000 130%), url(../imsges/main_bg.jpg);
+    background-size: cover;
+    color: #fff;
+    overflow: hidden;
+}
+
+.main__container {
+    position: relative;
+    padding-top: 31px;
+    padding-bottom: 89px;
+}
+
+.main__photo {
+    position: absolute;
+    height: auto;
+}
+
+.main__photo--left {
+    width: 659px;
+    max-width: 42%;
+    bottom: -20%;
+    left: 10px;
+}
+
+
+.main__photo--right {
+    width: 621px;
+    max-width: 39%;
+    bottom: -6%;
+    right: -8px;
+}
+
+.main__logo {
+    width: 478px;
+    margin: 0 auto;
+}
+
+.main__logo ._top {
+    font-size: 52.46px;
+}
+
+.main__logo ._bottom {
+    font-size: 50px;
+}
+
+.main__title {
+    margin-top: 31px;
+}
+
+.main__title span {
+    display: block;
+}
+
+.main__text {
+    max-width: 670px;
+    margin: 41px auto 0;
+    font-size: 29px;
+    font-weight: 500;
+}
+
+.main__text span {
+    font-weight: 700;
+}
+
+.main__form {
+    width: 488px;
+    margin: 38px auto 0;
+}
+
+/*Блок users*/
+
+.users {
+    padding: 61px 0 22px;
+    background-color: #000;
+}
+
+.users__container {
+    display: flex;
+    column-gap: 12px;
+}
+
+.users__title {
+    margin-bottom: 20px;
+    text-align: center;
+    color: #fff;
+    font-size: 24px;
+    font-weight: 500;
+}
+
+.users__item {
+    border-radius: 100%;
+    overflow: hidden;
+}
+
+/*Блок footer*/
+
+.footer {
+    padding: 22px 0;
+    background-color: #333;
+    color: #fff;
+}
+
+.footer__container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    column-gap: 40px;
+}
+
+.footer__logo {
+    width: 241px;
+}
+
+.footer__logo ._top {
+    font-size: 26.45px;
+}
+
+.footer__logo ._bottom {
+    font-size: 25.21px;
+}
+
+.footer__info {
+    text-align: left;
+    font-size: 14px;
+    font-weight: 400;
+}
+
+.footer__copyright {
+    display: block;
+    margin-bottom: 12px;
+    font-size: 15px;
+}
+
+.footer__phone {
+    font-size: 16px;
+    font-weight: 700;
+}
+
+@media(max-width: 1420px) {
+    .main__photo--left {
+        max-width: 35%;
+        bottom: -15%;
+    }
+    
+    
+    .main__photo--right {
+        max-width: 33%;
+        bottom: -4%;
+        right: 0px;
+    }
+}
+
+@media(max-width: 1040px) {
+
+    .main__container {
+        padding-top: 20px; 
+        padding-bottom: 215px;  
+    }
+
+    .main__photo--left {
+        width: 184px;
+        max-width: none;
+        bottom: -35px;
+        left: 50%;
+        transform: translateX(-87%);
+    }
+    
+    
+    .main__photo--right {
+        width: 180px;
+        max-width: none;
+        bottom: -10px;
+        right: 50%;
+        transform: translateX(89%);
+    }
+}
+
+@media(max-width: 850px) {
+    .main {
+        background-image: linear-gradient(180deg, rgba(0, 0, 0, 0) 0%, #000000 115%), url(../imsges/main_bg.jpg);
+    }
+
+    .users__container {
+        justify-content: space-between;
+        flex-wrap: wrap;
+        row-gap: 10px;
+    }
+
+    .users__item {
+        flex-basis: 30%;
+    }
+
+    .users__item--desctop {
+        display: none;
+    }
+
+    .footer__container {
+       flex-direction: column;
+       row-gap: 9px;
+    }
+
+    .footer__info {
+        display: flex;
+        flex-direction: column;
+        row-gap: 8px;
+        text-align: center;
+    }
+
+    .footer__copyright {
+        margin-bottom: 4px;
+    }
+}
+
+@media(max-width: 520px) {
+    .main__logo {
+        width: 300px;
+    }
+
+    .main__logo ._top {
+        font-size: 32.92px;
+    }
+    
+    .main__logo ._bottom {
+        font-size: 31.38px;
+    }
+
+    .main__title {
+        margin-top: 9px;
+        font-size: 16px;
+    }
+
+    .main__text {
+       display: none;
+    }
+
+    .main__form {
+        width: 100%;
+        margin: 20px auto 0;
+        padding: 18px 10px 22px;
+    }
+
+    .form__title {
+        font-size: 14px;
+    }
+
+    .form__input {
+        margin: 15px 0 0;
+    }
+
+    .form__btn {
+        margin: 12px auto 0;
+    }
+
+    .form__text {
+        font-size: 12px;
+        margin: 15px auto 0;
+    }
+
+    .form__privacy {
+        font-size: 10px;
+        margin: 15px auto 0;
+        text-align: left;
+    }
+
+    .users {
+        padding: 15px 0 22px;
+    }
+
+    .users__title {
+        font-size: 16px;
+    }
+}
